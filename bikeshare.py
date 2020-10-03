@@ -6,7 +6,8 @@ import datetime as dt
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-months=['january', 'february', 'march', 'april', 'may', 'june']
+# months=['january', 'february', 'march', 'april', 'may', 'june']
+months=['jan', 'feb', 'mar', 'apr', 'may', 'jun']
 
 def get_filters():
     """
@@ -30,21 +31,22 @@ def get_filters():
     	If user input for all, indicatest that there is no filter for month.
     '''
 
-    month=input('Please input for month (all, january, february, ... , june):\n')
+    #month=input('Please input for month (all, january, february, ... , june):\n')
+    month=input('Please input for month (all, jan, feb, ... , jun):\n')
     month=month.lower()
     while month != 'all' and month not in months:
-    	month=input ('Please input for a valid month (all, january, february, ... , june):\n')
+    	month=input ('Please input for a valid month (all, jan, feb, ... , jun):\n')
     	month=month.lower()
 
 
-    ''' TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
-    	If user input for all, indicates that there is no filter for week.
-    '''
-    days=['monday','tuesday','wednesday','thursday','friday', 'saturday', 'sunday']
-    day=input('Please input for day of week (all, monday, tuesday, ... sunday):\n')
+    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # days=['monday','tuesday','wednesday','thursday','friday', 'saturday', 'sunday']
+    days=['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+    day=input('Please input for day of week (all, mon, tue, ... sun):\n')
+
     day=day.lower()
     while day != 'all' and day not in days:
-    	day=input ('Please input for a valid day of week (all, monday, tuesday, ... sunday):\n')
+    	day=input ('Please input for a valid day of week (all, mon, tue, ... sun):\n')
     	day=day.lower()
 
 
@@ -64,12 +66,12 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     df=pd.read_csv(CITY_DATA[city])
-    columns=list(df.columns())
+    columns=list(df.keys())
 
     df['Start Time']=pd.to_datetime(df['Start Time'])
 
     df['month']=df['Start Time'].dt.month
-    df['week_of_day']=df['Start Time'].dt.day_name()
+    df['week_of_day']=df['Start Time'].dt.day_name().str[0:3]
     df['hour']=df['Start Time'].dt.hour
 
     df['Combination Station']=df['Start Station'] + ' & ' + df['End Station']
@@ -205,7 +207,7 @@ def data_samples(df, columns):
     	print ('This took %s seconds.' % (time.time()-start_time))
     	print ('')
 
-    print ('-*40')
+    print ('-'*40)
 
 
 def main():
