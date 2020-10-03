@@ -26,7 +26,9 @@ def get_filters():
     	city=city.lower()
     	
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    ''' TO DO: get user input for month (all, january, february, ... , june)
+    	If user input for all, indicatest that there is no filter for month.
+    '''
 
     month=input('Please input for month (all, january, february, ... , june):\n')
     month=month.lower()
@@ -35,7 +37,9 @@ def get_filters():
     	month=month.lower()
 
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    ''' TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    	If user input for all, indicates that there is no filter for week.
+    '''
     days=['monday','tuesday','wednesday','thursday','friday', 'saturday', 'sunday']
     day=input('Please input for day of week (all, monday, tuesday, ... sunday):\n')
     day=day.lower()
