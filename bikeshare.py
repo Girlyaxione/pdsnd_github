@@ -28,6 +28,7 @@ def get_filters():
 
     # TO DO: get user input for month (all, january, february, ... , june)
 
+    #month=input('Please input for month (all, january, february, ... , june):\n')
     month=input('Please input for month (all, january, february, ... , june):\n')
     month=month.lower()
     while month != 'all' and month not in months:
@@ -60,7 +61,7 @@ def load_data(city, month, day):
         df - Pandas DataFrame containing city data filtered by month and day
     """
     df=pd.read_csv(CITY_DATA[city])
-    columns=list(df.columns())
+    columns=list(df.keys())
 
     df['Start Time']=pd.to_datetime(df['Start Time'])
 
@@ -201,7 +202,7 @@ def data_samples(df, columns):
     	print ('This took %s seconds.' % (time.time()-start_time))
     	print ('')
 
-    print ('-*40')
+    print ('-'*40)
 
 
 def main():
