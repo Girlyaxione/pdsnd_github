@@ -1,15 +1,16 @@
 ### Date created
-Include the date you created this project and README file.
+This project and README file was created at 2020/10/3.
 
 ### Project Title
-Replace the Project Title
+Explore US Bikeshare Data
 
 ### Description
-Describe what your project is about and what it does
+Use PY to understand U.S. bikeshare data. 
+Calculate statistics and build an interactive environment where a user chooses the data and filter for a dataset to analyze.
 
 ### Files used
-Include the files used
+The project included the one python file named bikeshare.py and 3 .csv data files.
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+https://github.com/Girlyaxione/pdsnd_github
 
